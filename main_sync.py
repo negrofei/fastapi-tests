@@ -2,14 +2,6 @@ from fastapi import FastAPI, HTTPException, Depends
 from models_sync import Item, DBItem, Session, get_session
 
 
-# # esto estaría en una base de datos
-# items = {
-#     0: Item(name='Hammer', price=9.99, quantity=20, id=0, category=Category.TOOLS),
-#     1: Item(name='Pliers', price=5.99, quantity=20, id=1, category=Category.TOOLS),
-#     2: Item(name='Nails', price=1.99, quantity=100, id=2, category=Category.CONSUMABLES),
-# }
-
-
 # Instantiate the app
 app = FastAPI(
     title="Testing",

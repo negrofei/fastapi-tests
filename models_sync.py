@@ -3,7 +3,7 @@ from typing import List
 
 from pydantic import BaseModel, Field
 from sqlalchemy import Column, Integer, String, Numeric
-from sqlalchemy.orm import (  
+from sqlalchemy.orm import (
     Session,
     declarative_base,
 )
@@ -48,7 +48,7 @@ def get_session():
         session.close()
 
 
-### Models for API
+# Models for API
 class Category(Enum):
     """Category of an item"""
 

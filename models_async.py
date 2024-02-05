@@ -2,7 +2,6 @@ from enum import Enum
 from typing import List
 
 from pydantic import BaseModel, Field, constr, confloat, conint
-from sqlalchemy import select
 from sqlalchemy.orm import (  # Cosas de conexiones con la base de datos
     DeclarativeBase,
     Mapped,
@@ -12,8 +11,7 @@ from sqlalchemy.orm import (  # Cosas de conexiones con la base de datos
 from sqlalchemy.engine import Engine
 
 # ASYNC
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
-import asyncio
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
 
 def start_your_engine() -> Engine:
