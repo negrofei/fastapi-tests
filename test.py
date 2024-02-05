@@ -1,23 +1,22 @@
 import requests
 
-print('Getting items ...')
+print("Getting items ...")
 print(requests.get("http://127.0.0.1:8000/items").json())
-
 
 
 ### ----------------------------
 # ### Esto es con items definido en el archivo
 # # Get all items
 # print('Getting all items ...')
-# print(requests.get("http://127.0.0.1:8000/").json()) 
+# print(requests.get("http://127.0.0.1:8000/").json())
 
-# # Get item 
+# # Get item
 # print('Getting item 1 ...')
-# print(requests.get("http://127.0.0.1:8000/items/1").json()) 
+# print(requests.get("http://127.0.0.1:8000/items/1").json())
 
 # # Get item by parameters
 # print('Getting item with name=Nails ...')
-# print(requests.get("http://127.0.0.1:8000/items?name=Nails").json()) 
+# print(requests.get("http://127.0.0.1:8000/items?name=Nails").json())
 
 # # Adding item
 # print("Adding an item:")
@@ -27,7 +26,7 @@ print(requests.get("http://127.0.0.1:8000/items").json())
 #         json={"name": "Screwdriver", "price": 3.99, "quantity": 10, "id": 4, "category": "tools"},
 #     ).json()
 # )
- 
+
 
 # # Adding item again
 # print("Adding same item:")

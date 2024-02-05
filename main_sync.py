@@ -14,8 +14,9 @@ from models_sync import Item, DBItem, Session, get_session
 app = FastAPI(
     title="Testing",
     description="Inventario de herramientas",
-    version='0.1.0',
+    version="0.1.0",
 )
+
 
 # Create new item
 @app.post("/items")
@@ -24,7 +25,8 @@ def add_item(item: Item, db: Session = Depends(get_session)):
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
-    return db_item 
+    return db_item
+
 
 # Delete item
 @app.delete("/items/{item_id}")
@@ -38,11 +40,12 @@ def delete_item(item_id: int, db: Session = Depends(get_session)) -> dict[str, I
     db.commit()
     return {"deleted": db_item.__dict__}
 
+
 # Get items
-@app.get('/items')
+@app.get("/items")
 def get_items(db: Session = Depends(get_session)):
     items = db.query(DBItem).all()
-    return {'items': items}
+    return {"items": items}
 
 
 ### Lo que quedó de antes con 'items'
@@ -67,14 +70,14 @@ def get_items(db: Session = Depends(get_session)):
 # @app.get("/items/")
 # def query_item_by_parameters(
 #     name: str | None = None,
-#     price: float | None = None, 
-#     quantity: int | None = None, 
-#     category: Category | None = None, 
+#     price: float | None = None,
+#     quantity: int | None = None,
+#     category: Category | None = None,
 # ) -> dict[str, Selection | list[Item]]:
 #     def check_item(item: Item) -> bool:
 #         return all(
 #             (
-#                 name is None or item.name == name, 
+#                 name is None or item.name == name,
 #                 price is None or item.price == price,
 #                 quantity is None or item.quantity == quantity,
 #                 category is None or item.category is category
@@ -83,7 +86,7 @@ def get_items(db: Session = Depends(get_session)):
 #     selection = [item for item in items.values() if check_item(item)]
 #     return {
 #         "query": {"name": name, "price": price, "quantity": quantity, "category":category},
-#         "selection": selection, 
+#         "selection": selection,
 #     }
 
 
@@ -107,7 +110,7 @@ def get_items(db: Session = Depends(get_session)):
 #     quantity: int | None = None,
 #     category: Category | None = None,
 # ) -> dict[str, Item]:
-    
+
 #     if item_id not in items:
 #         raise HTTPException(status_code=404, detail=f"Item with id {item_id} does not exist.")
 #     if all(info is None for info in (name, price, quantity, category)):
